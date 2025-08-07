@@ -133,6 +133,10 @@ NUMBER = ({DECIMAL1}|{DECIMAL2}|{INTEGER})({EXPONENT})?
      return new Token(Token.EXP);
 }
 
+<YYINITIAL> "~"  {
+     return new Token(Token.UNARY);
+}
+
 <YYINITIAL> {NUMBER} {
     return new Token (Token.NUMBER,yytext());
 }
